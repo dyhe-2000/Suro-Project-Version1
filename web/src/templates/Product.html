@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  header{
+
+  }
+
+  nav{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px 60px 0 60px;
+  }
+  
+  nav li{
+    list-style: none;
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  
+  nav li span{
+    padding-left: 5px;
+  }
+  
+  li a {
+    padding: 5px;
+    background-color: #fff;
+    text-decoration: none;;
+  }
+  
+  .cart ion-icon{
+    vertical-align: bottom;
+    font-size: 20px;
+    padding-right: 5px;
+  }
+  
+  .cart a {
+    background-color: royalblue;
+    color: #fff
+    cursor: pointer;
+    text-decoration: none;
+  }
+</style>
+
+<head>
+  <title>Product Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+
+<body>
+  <header>
+    <div class="overlay"></div>
+    <nav>
+      <h2>SHOP</h2>
+      <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/about">About</a></li>
+        <li class="cart">
+          <a href="/cart">
+            Cart<span>0</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p>View Shower Door Products <a href="/shower_door_products"><font size=3><strong>Click Here</strong></a></p>
+  <p>View Sink Products <a href="/sink_products"><font size=3><strong>Click Here</strong></a></p>
+  <p>View Tiolet Products <a href="/tiolet_product"><font size=3><strong>Click Here</strong></a></p>
+  <script src="main.js"></script>
+</body>
+<!-- <script type = "text/javascript"> -->
+    <!-- if(document.referrer === '')window.location = '/' -->
+<!-- </script>  -->
+
+</html>

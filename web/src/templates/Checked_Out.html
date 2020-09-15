@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Payment Information Is Received</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  
+  <body>
+    <h1>Payment Information Is Received</h1>
+   <div class="container" style='padding:2rem'>
+    <form name='post_user' method='POST' action='/post_user'>
+      <div class='warning' style='color:maroon'>
+       {% if error is defined %}
+          {{ error }}
+       {% endif %}
+      </div>
+      
+      <div class="login">
+        <h2>Once the transcation is validated, you will receive a conformation email, if not, please contact us</h2>
+        <h2>Thank you for choosing us!</h2>
+        <input type="button" id = 'logbtn' onclick="window.location.href = '/team'" value="Go To How To Contact Us"/>
+        <input type="button" id = 'logbtn' onclick="window.location.href = '/'" value="Go Back To Home"/>   
+      </div>
+    </form>
+ </div>
+
+  </body>
+</html>

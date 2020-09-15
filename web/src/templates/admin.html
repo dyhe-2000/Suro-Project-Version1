@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Page Info -->
+    <title>Pyramid Security</title>
+    <meta name="author" content="Ramsin Khoshabeh">
+    <meta name="description" content="A Place to Call Home">
+
+    <link rel="stylesheet" type="text/css" href="css/agile.css">
+  </head>
+
+  <body>
+
+    <div class='hero'>
+      <h1> Successfully Logged In! </h1>
+    </div>
+
+    <section class='padding-responsive'>
+
+      <h1 class='bordered'> Welcome! </h1>
+      <h2 class=''> {{user}} </h2>
+
+    </section>
+    
+    <body onload='executeAsynchronously([getDashboard], 1);'>
+    
+    <div class="boxed" id="Dashboard">
+     Dashboard
+    </div>
+    
+    <input type="button" id = 'logbtn' onclick="window.location.href = '/'" value="Go Back"/> 
+
+  </body>
+  
+  <script language="javascript"> 
+function getDashboard(){
+ var fileName="Dashboard.txt", xmlHttp=new XMLHttpRequest();
+ xmlHttp.onreadystatechange=function(){
+  var tmpDoc, re=/^(.+)$/gm, arr=[], oP;
+  if(xmlHttp.readyState===4){
+   if(xmlHttp.status===200){
+    tmpDoc=xmlHttp.responseText;
+    arr=re.exec(tmpDoc);
+    counter = 0;
+    while(arr!==null){
+     oP=document.createElement("P");
+     document.getElementById("Dashboard").appendChild(oP).appendChild(document.createTextNode(arr[1]));
+     document.getElementById("Dashboard").appendChild(document.createTextNode("\r\n"));
+     //insert tests -> for style/format
+     <!-- if(arr[1].substr(0,4)==="John"){ -->
+      <!-- oP.style.color="#f00"; -->
+     <!-- } -->
+     <!-- alert(arr[1].split(" ")[3]==="verified"); -->
+     arr=re.exec(tmpDoc);
+     counter = counter + 1; //counter increment by 2
+    }
+    xmlHttp=null;
+   }
+  }
+ };
+ xmlHttp.open("POST", fileName, true); //Use POST to prevent use of cached file
+ xmlHttp.send();
+ var fs = require("fs");
+var fileContent = "hello";
+
+fs.writeFile("./sample.txt", fileContent, (err) => {
+    if (err) {
+        console.error(err);
+        return;
+    };
+    console.log("File has been created");
+});
+}
+
+function start(){
+  getPercentage();
+  getCustomersCount();
+}
+
+function executeAsynchronously(functions, timeout) {
+  for(var i = 0; i < functions.length; i++) {
+    setTimeout(functions[i], timeout);
+  }
+}
+
+
+</script>
+</html>

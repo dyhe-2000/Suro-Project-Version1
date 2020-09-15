@@ -1,0 +1,7 @@
+Route  |  Total visitors  |  Guest total visitors  |  Unique signed in visitors
+/              2                       0                       1
+/about         0                       0                       0
+/team          0                       0                       0
+/product       0                       0                       0
+/signup        0                       0                       0
+/login         1                       0                       1

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Check Out page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  
+  <body>
+    <h1>Welcome to Check Out Page</h1>
+   <div class="container" style='padding:2rem'>
+    <form name='checkout' method='POST' action='/checkout'>
+      <div class='warning' style='color:maroon'>
+       {% if error is defined %}
+          {{ error }}
+       {% endif %}
+      </div>
+      
+      <div class="login">
+        <h2>If you want to, you can also make purchase by contacting us with negotiation</h2>
+        <h2>Once the transcation is validated, you will receive a conformation email, if not, please contact us</h2>
+        <h2>Thank you for choosing us!</h2>
+        
+         <label><strong>First Name:</strong></label>
+         <input type="text" id="firstname" name="firstname"
+            placeholder="Enter First Name"><br><br> 
+
+         <label><strong>Last Name:</strong></label>
+         <input type="text" id="lastname" name="lastname"
+            placeholder="Enter Last Name"><br><br>              
+         
+         <label><strong>Email:  </strong></label>
+        <input type="email" id="email" name="email"
+             placeholder= "Enter Email"><br><br> 
+             
+         <label><strong>Phone number:  </strong></label>
+        <input type="phonenumber" id="phonenumber" name="phonenumber"
+             placeholder= "Enter Phone Number"><br><br> 
+             
+        <label><strong>Full Address:  </strong></label>
+        <input type="fullAddress" id="fullAddress" name="fullAddress"
+             placeholder= "Enter Full Address"><br><br> 
+             
+        <label><strong>Debit Card Number:  </strong></label>
+        <input type="debitCardNumber" id="debitCardNumber" name="debitCardNumber"
+             placeholder= "Enter Card Number"><br><br> 
+             
+        <label><strong>Security Code On The Back Of Your Card:  </strong></label>
+        <input type="debitCardSecurityCode" id="debitCardSecurityCode" name="debitCardSecurityCode"
+             placeholder= "Enter Code"><br><br>
+             
+        <input type="hidden" id="localStorage" name="localStorage" value="" />
+        <button type='submit' id = 'logbtn'> Check-Out!</button>
+        <input type="button" id = 'logbtn' onclick="window.location.href = '/cart'" value="Go Back To Cart To See What You Are Paying"/>   
+      </div>
+    </form>
+ </div>
+  <script>
+  function allStorage() {
+
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+
+    while ( i-- ) {
+        values.push( localStorage.getItem(keys[i]) );
+    }
+    console.log(values)
+    document.getElementById('localStorage').value = values;
+}
+allStorage()
+  </script>
+  </body>
+</html>

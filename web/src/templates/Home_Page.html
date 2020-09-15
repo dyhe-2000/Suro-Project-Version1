@@ -1,0 +1,218 @@
+<html>
+
+<head>
+<!-- <meta http-equiv="refresh" content="60"/> -->
+<title>Suro Bathroom Fixtures Home Page</title>
+</head>
+
+<style>
+.boxed {
+  border: 1px solid green ;
+}
+.boxed1 {
+  border: 1px solid green ;
+}
+.boxed2 {
+  border: 1px solid green ;
+}
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #FFFFFF; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+<div class="main">
+
+<div class= 'logo'>
+  <img id = "frtlogo" src="logo1.JPG">
+</div>
+
+Welcome to Suro Bathroom Fixtures Home Page!!!
+<br>
+<p>View Products, add to carts, and check-out<a href="/product"><font size=3><strong>Click Here</strong></a></p>
+<p>Contact us for visit, questions, and check out<a href="/team"><font size=3><strong>Click Here</strong></a></p>
+
+<br>
+<p> New user register here <a href="/post_user"><font size=3><strong>Click Here</strong></a></p>
+<p>Log In if you want, but no actual use <a href="/get_login"><font size=3><strong>Click Here</strong></a></p>
+<br>
+<p>Our vision <a href="/about"><font size=3><strong>Click Here</strong></a></p>
+<!-- <p>Enter Progress Percentage <a href="/enter_progress"><font size=3><strong>Click Here</strong></a></p> -->
+<p>Enter News to DB in chronological order <a href="/enter_news"><font size=3><strong>Click Here</strong></a></p>
+<!-- <p>Send An Email <a href="/send_email"><font size=3><strong>Click Here</strong></a></p> -->
+<!-- <p>Register <a href="/register"><font size=3><strong>Click Here</strong></a></p> -->
+<!-- <p>Log in admin portal<a href="/login"><font size=3><strong>Click Here</strong></a></p> -->
+
+
+<!-- <div style='padding:4rem'>   -->
+    <!-- <div id="pageDiv"> -->
+  <!-- <td><input type="submit" id = 'logbtn' onclick="return getPercentage()" value="check progress" style='padding:2rem'></td> -->
+    <!-- </div> -->
+    
+    <body onload='executeAsynchronously([getCustomersCount, getNews], 1);'>
+    <!-- <body onload='getPercentage()'> -->
+
+<br>
+<br>
+<!-- <form name='did_login' method='POST' id="namesFromFile"> -->
+      <!-- <div class='warning' style='color:maroon'> -->
+       <!-- {% if error is defined %} -->
+          <!-- {{ error }} -->
+       <!-- {% endif %} -->
+      <!-- </div> -->
+      
+    <!-- </form> -->
+    
+    
+<div class="boxed" id="customersCount">
+  Prospective Customers
+</div>
+
+<!-- <div class="boxed1" id="progressPercentage"> -->
+  <!-- MVP Progress: -->
+<!-- </div> -->
+<!-- </div> -->
+
+<div class= 'logo'>
+  <img id = "frtlogo" src="page1_1.jpg">
+</div>
+
+
+
+<div class="sidenav" >
+News side box:
+<div class="boxed1" id="news">
+ News:
+</div>
+  
+</div>
+
+<p>Admin login <a href="/admin_login"><font size=3><strong>Click Here</strong></a></p>
+
+<script language="javascript"> 
+function getCustomersCount(){
+ var fileName="count_customers.txt", xmlHttp=new XMLHttpRequest();
+ xmlHttp.onreadystatechange=function(){
+  var tmpDoc, re=/^(.+)$/gm, arr=[], oP;
+  if(xmlHttp.readyState===4){
+   if(xmlHttp.status===200){
+    tmpDoc=xmlHttp.responseText;
+    arr=re.exec(tmpDoc);
+    counter = 0;
+    while(arr!==null){
+     oP=document.createElement("P");
+     document.getElementById("customersCount").appendChild(oP).appendChild(document.createTextNode(arr[1]));
+     document.getElementById("customersCount").appendChild(document.createTextNode("\r\n"));
+     //insert tests -> for style/format
+     <!-- if(arr[1].substr(0,4)==="John"){ -->
+      <!-- oP.style.color="#f00"; -->
+     <!-- } -->
+     <!-- alert(arr[1].split(" ")[3]==="verified"); -->
+     arr=re.exec(tmpDoc);
+     counter = counter + 1; //counter increment by 2
+    }
+    xmlHttp=null;
+   }
+  }
+ };
+ xmlHttp.open("POST", fileName, true); //Use POST to prevent use of cached file
+ xmlHttp.send();
+ var fs = require("fs");
+var fileContent = "hello";
+
+fs.writeFile("./sample.txt", fileContent, (err) => {
+    if (err) {
+        console.error(err);
+        return;
+    };
+    console.log("File has been created");
+});
+}
+
+function getNews(){
+ var fileName="News.txt", xmlHttp=new XMLHttpRequest();
+ xmlHttp.onreadystatechange=function(){
+  var tmpDoc, re=/^(.+)$/gm, arr=[], oP;
+  if(xmlHttp.readyState===4){
+   if(xmlHttp.status===200){
+    tmpDoc=xmlHttp.responseText;
+    arr=re.exec(tmpDoc);
+    counter = 0;
+    while(arr!==null){
+     oP=document.createElement("P");
+     document.getElementById("news").appendChild(oP).appendChild(document.createTextNode(arr[1]));
+     document.getElementById("news").appendChild(document.createTextNode("\r\n"));
+     //insert tests -> for style/format
+     <!-- if(arr[1].substr(0,4)==="John"){ -->
+      <!-- oP.style.color="#f00"; -->
+     <!-- } -->
+     <!-- alert(arr[1].split(" ")[3]==="verified"); -->
+     arr=re.exec(tmpDoc);
+     counter = counter + 1; //counter increment by 2
+    }
+    xmlHttp=null;
+   }
+  }
+ };
+ xmlHttp.open("POST", fileName, true); //Use POST to prevent use of cached file
+ xmlHttp.send();
+ var fs = require("fs");
+var fileContent = "hello";
+
+fs.writeFile("./sample.txt", fileContent, (err) => {
+    if (err) {
+        console.error(err);
+        return;
+    };
+    console.log("File has been created");
+});
+}
+
+function start(){
+  getPercentage();
+  getCustomersCount();
+}
+
+function executeAsynchronously(functions, timeout) {
+  for(var i = 0; i < functions.length; i++) {
+    setTimeout(functions[i], timeout);
+  }
+}
+
+
+</script>
+
+</html>

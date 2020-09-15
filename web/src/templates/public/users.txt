@@ -1,0 +1,4 @@
+1 SEIALLSTAR 1234 verified allstarsei@gmail.com 2020-04-24 14:31:21 
+2 David 1234 verified dyhe@ucsd.edu 2020-04-24 14:31:21 
+3 Derek 123 pending dec001@ucsd.edu 2020-04-24 15:52:08 
+8 Haowen 123 pending haj047@ucsd.edu 2020-05-03 15:04:26 

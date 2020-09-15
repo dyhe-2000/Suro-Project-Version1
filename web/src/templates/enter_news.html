@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add News page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  
+  <body>
+    <h1>Welcome to the Add News Page</h1>
+   <div class="container" style='padding:2rem'>
+    <form name='enter_news' method='POST' action='/enter_news'>
+      <div class='warning' style='color:maroon'>
+       {% if error is defined %}
+          {{ error }}
+       {% endif %}
+      </div>
+      
+      <div class="login">
+        <h2>Enter news</h2>
+        
+         <label><strong>Title:</strong></label>
+         <input type="text" id="news_title" name="news_title"
+            placeholder="Enter title"><br><br> 
+            
+            <label><strong>Time:</strong></label>
+         <input type="text" id="news_time" name="news_time"
+            placeholder="Enter time"><br><br> 
+            
+            <label><strong>Content:</strong></label>
+         <input type="text" id="news_content" name="news_content"
+            placeholder="Enter content"><br><br> 
+            
+        <button type='submit' id = 'logbtn'> Submit</button> 
+      </div>
+    </form>
+ </div>
+
+  </body>
+</html>
